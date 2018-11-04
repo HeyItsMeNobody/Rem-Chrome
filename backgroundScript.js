@@ -4,7 +4,8 @@ setInterval(function() {
             var url = tabs[0].url;
             
             var step1 = url.replace("http://", "");
-            var finish = step1.replace("https://", "");
+            var step2 = step1.replace("https://", "");
+            var finish = step2.replace("www.", "");
             finish = finish.substring(0, finish.indexOf('/')+1).replace('/', '');
                 
             xhr = new XMLHttpRequest();
