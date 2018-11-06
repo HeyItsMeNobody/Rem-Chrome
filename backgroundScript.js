@@ -40,7 +40,8 @@ setInterval(function() {
                 var step1 = url.replace("http://", "");
                 var step2 = step1.replace("https://", "");
                 var finish = step2.replace("www.", "");
-                finish = finish.substring(0, finish.indexOf('/')+1).replace('/', '');
+                if (finish.indexOf('chrome://') == 0) {}
+                else finish = finish.substring(0, finish.indexOf('/')+1).replace('/', '');
     
                 xhr = new XMLHttpRequest();
                 var url = "http://localhost:9999/api/chrome";
