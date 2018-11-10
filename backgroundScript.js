@@ -42,6 +42,9 @@ setInterval(function() {
                 var finish = step2.replace("www.", "");
                 if (finish.indexOf('chrome://') == 0) {}
                 else finish = finish.substring(0, finish.indexOf('/')+1).replace('/', '');
+                if (finish == 'youtube.com') {
+                    var ytVideoID = step2;
+                }
     
                 xhr = new XMLHttpRequest();
                 var url = "http://localhost:9999/api/chrome";
@@ -55,7 +58,7 @@ setInterval(function() {
                 }
     
                 if(finish == "youtube.com") {
-                    var data = JSON.stringify({"details":`${finish}`,"state":"Video: N/A", "largeImageKey":"chrome"});
+                    var data = JSON.stringify({"details":`${finish}`,"state":`${ytVideoID}`, "largeImageKey":"chrome"});
                 } else {
                     var data = JSON.stringify({"details":`${finish}`,"state":"N/A", "largeImageKey":"chrome"});
                 }
